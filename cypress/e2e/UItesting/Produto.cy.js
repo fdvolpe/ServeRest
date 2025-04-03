@@ -1,25 +1,10 @@
+import * as utils from "../../support/utils";
+
 describe('Pesquisar produto', () => {
     it('Pesquisa um produto e valida se ele foi encontrado', () => {
-        var user = "User" + Math.random().toString(36).substring(2, 6);
-        var email = user + "@gmail.com";
-        var password = "testuser";       
-        
-        //criar usuário
-        cy.visit('https://front.serverest.dev/')
-        cy.get('[data-testid="cadastrar"]').click()
-        cy.get('[data-testid="nome"]').type(user)
-        cy.get('[data-testid="email"]').type(email)
-        cy.get('[data-testid="password"]').type(password)
-        cy.get('[data-testid="cadastrar"]').click()
-        
-        //loga e pesquisa
-        cy.visit('https://front.serverest.dev/')
-        cy.get('[data-testid="email"]').type(email)
-        cy.get('[data-testid="senha"]').type(password)
-        cy.get('[data-testid="entrar"]').click()
-        cy.get('[data-testid="pesquisar"]').type('Ifone 8')
-        cy.get('[data-testid="botaoPesquisar"]').click()
-        cy.contains('Ifone 8').should('be.visible')
+        utils.cadastroUsuario();
+        utils.login();
+        utils.pesquisarProduto();
     })
   })
   
