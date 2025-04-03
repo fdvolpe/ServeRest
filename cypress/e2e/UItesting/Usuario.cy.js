@@ -1,13 +1,13 @@
-import { cadastroUsuario, login } from "../../support/utils";
+import * as utils from "../../support/utils_ui";
 
 describe('Novo cadastro de usuario e login', () => {
 
-  it('Realizar cadastro', () => {
-    cadastroUsuario();
+  it('Realizar cadastro e validar mensagem de sucesso', () => {
+    utils.cadastroUsuario();
   })
 
-  it('efetuar login', () => {
-    login();
+  it('Efetuar login e validar acesso', () => {
+    utils.login();
   })
 })
 
