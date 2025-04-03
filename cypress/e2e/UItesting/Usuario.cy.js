@@ -12,6 +12,7 @@ describe('Novo cadastro de usuario', () => {
     cy.get('[data-testid="email"]').type(Cypress.env('email'))
     cy.get('[data-testid="password"]').type(Cypress.env('password'))
     cy.get('[data-testid="cadastrar"]').click()
+    cy.contains('Cadastro realizado com sucesso').should('be.visible')
   })
 })
 
