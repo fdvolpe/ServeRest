@@ -1,6 +1,6 @@
 import * as utils from "../../support/utils_api";
 
-context("Operações de usuário", () => {
+context("Operações de usuário pela API", () => {
     it("Receber todos os usuários", () => {
         utils.pesquisarTodosUsuariosAPI();
     })

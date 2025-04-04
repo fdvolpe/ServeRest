@@ -1,6 +1,6 @@
 import * as utils from "../../support/utils_api";
 
-context("POST Login de usuario", () => {
+context("Login de usuario pela API", () => {
   it("Criar usuário e realizar o Login", () => {    
 
       utils.cadastroUsuarioAPI();         

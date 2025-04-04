@@ -1,6 +1,6 @@
 import * as utils from "../../support/utils_api";
 
-context("GET consultar produto específico", () => {
+context("Operações de produto pela API", () => {
     it("Consultar produto pelo nome", () => {
       
       utils.consultarProdutoPeloNomeAPI(); 
