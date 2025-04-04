@@ -24,18 +24,24 @@ export function login() {
   }
 
 export function pesquisarProduto() {
-    cy.get('[data-testid="pesquisar"]').type('Ifone 8')
+  cy.fixture('testData.json').then((testdata) => {
+    const produto = testdata.produto;    
+    cy.get('[data-testid="pesquisar"]').type(produto)
     cy.get('[data-testid="botaoPesquisar"]').click()
-    cy.contains('Ifone 8').should('be.visible')
+    cy.contains(produto).should('be.visible')
+  });    
   }
 
   export function adicionarLista() {
+    cy.fixture('testData.json').then((testdata) => {
+      const produto = testdata.produto; 
     cy.get('[data-testid="adicionarNaLista"]').click()
     cy.get('[data-testid="adicionar carrinho"]').should('be.visible')    
-    cy.contains('Ifone 8').should('be.visible')
+    cy.contains(produto).should('be.visible')
     cy.contains('Preço ').should('be.visible')
     cy.get('[data-testid="shopping-cart-product-quantity"]').contains('Total: 1')
-  }
+  })
+}
 
   export function limparLista() {
     cy.get('[data-testid="limparLista"]').click()

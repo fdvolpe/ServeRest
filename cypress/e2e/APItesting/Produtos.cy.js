@@ -30,14 +30,8 @@ context("GET consultar produto específico", () => {
   })
   
   context("POST criar produto e consultar pelo id", () => {
-    it("Criar produto e consultar pelo id", () => {
+    it("Criar produto e consultar pelo id", () => {  
       
-      //características do produto
-      var nomeProduto = "Dell Pro 16 Plus " + Math.random().toString(36).substring(2, 6);
-      var descicaoProduto = "laptop";
-      var precoProduto = 10000;
-      var quantidadeProduto = 150;
-  
       //criar usuário admin
       var user = "user"+Math.random().toString(36).substring(2, 6);
       var userEmail = user+"@gmail.com";
@@ -69,7 +63,11 @@ context("GET consultar produto específico", () => {
         expect(responseLogin.body.authorization).to.not.be.null
         Cypress.env('token', responseLogin.body.authorization); 
         
-        //criar produto
+        //criar produto        
+        var nomeProduto = "Dell Pro 16 Plus " + Math.random().toString(36).substring(2, 6);
+        var descicaoProduto = "laptop";
+        var precoProduto = 10000;
+        var quantidadeProduto = 150;
         cy.request({
           method: "POST",
           url: "https://serverest.dev/produtos",

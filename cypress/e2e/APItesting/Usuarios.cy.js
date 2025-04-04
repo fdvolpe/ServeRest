@@ -1,26 +1,19 @@
-context("GET usuarios", () => {
+import * as utils from "../../support/utils_api";
+
+context("Operações de usuário", () => {
     it("Receber todos os usuários", () => {
-      cy.request("GET", "https://serverest.dev/usuarios").then((response) => {
-        expect(response.status).to.eq(200)
-        expect(response.body.usuarios).length.to.be.greaterThan(1)
+        utils.pesquisarTodosUsuariosAPI();
+    })
+
+    it("Cadastrar usuário comum", () => {
+        utils.cadastroUsuarioAPI();     
+    })
+
+    it("Cadastrar usuário admin", () => {
+        utils.cadastroUsuarioAdminAPI();     
       })
-    })
-  })
-  
-  context("POST usuarios", () => {
-    it("Cadastrar usuário", () => {
-      var user = "user"+Math.random().toString(36).substring(2, 6);
-      cy.log(user)
-      Cypress.env('user', user);
-      cy.request("POST", "https://serverest.dev/usuarios",
-        {
-          nome: user,
-          email: user+"@gmail.com",
-          password: "teste",
-          administrador: "true"
-        }
-      ).then((response) => {
-        expect(response.status).to.eq(201)
-        expect(response.body.message).to.eq("Cadastro realizado com sucesso") })      
-    })
+
+    it("Deletar usuário", () => {
+        utils.deletarUsuarioAPI();     
+      })
   })
